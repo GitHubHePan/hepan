@@ -19,9 +19,8 @@ public class AdForm {
 
     private Integer goodsId;
 
-    private Boolean enabled;
+    private Integer enabled;
 
-    @NotEmpty(message="到期时间不可为空")
     private Date endTime;
 
     private Integer sortOrder;

@@ -3,6 +3,7 @@ package org.hepan.service;
 import com.github.pagehelper.PageInfo;
 import org.hepan.VO.AdVO;
 import org.hepan.dataobject.HepanAd;
+import org.hepan.form.AdForm;
 
 
 public interface AdService {
@@ -11,5 +12,7 @@ public interface AdService {
 
     Boolean updateAdStatus(Integer id, Boolean status);
 
-    HepanAd findById(Integer id);
+    AdVO findById(Integer id);
+
+    Boolean updateAdById(AdForm ad);
 }

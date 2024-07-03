@@ -1,6 +1,5 @@
 package org.hepan.VO;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 
 import javax.persistence.Id;

@@ -18,5 +18,14 @@ public interface AdMapper {
     @Update("update hepan_ad set enabled = #{enabled} where id = #{id}")
     Boolean updateAd(HepanAd ad);
 
-    @Update("update ")
+    @Update("update hepan_ad set enabled = #{enabled}," +
+            "image_url=#{imageUrl}," +
+            "sort_order=#{sortOrder}," +
+            "end_time=#{endTime}," +
+            "link=#{link}," +
+            "link_type=#{linkType}," +
+            "goods_id=#{goodsId}," +
+            "enabled=#{enabled} " +
+            "where id = #{id}")
+    Boolean updateAdById(HepanAd ad);
 }

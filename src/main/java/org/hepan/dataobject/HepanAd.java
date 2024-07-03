@@ -34,4 +34,6 @@ public class HepanAd implements Serializable {
     private Integer sortOrder;
 
     private Integer isDelete;
+
+
 }

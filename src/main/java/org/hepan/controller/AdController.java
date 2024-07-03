@@ -1,11 +1,14 @@
 package org.hepan.controller;
 
+import org.hepan.VO.AdVO;
 import org.hepan.VO.ChangeAdStatusVO;
 import org.hepan.VO.ResultVO;
 import org.hepan.dataobject.HepanAd;
 import org.hepan.form.AdForm;
 import org.hepan.service.AdService;
 import org.hepan.utils.ResultUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -17,6 +20,7 @@ import java.util.Map;
 @RequestMapping(value = "/ad")
 public class AdController {
 
+    private static final Logger log = LoggerFactory.getLogger(AdController.class);
     @Autowired
     private AdService adService;
 
@@ -28,15 +32,15 @@ public class AdController {
 
     @RequestMapping(value = "/info", method = RequestMethod.GET)
     public ResultVO saleStatus(@RequestParam Integer id) {
-        HepanAd ad = adService.findById(id);
+        AdVO ad = adService.findById(id);
         return ResultUtil.success(ad);
     }
 
-
+//
     @RequestMapping(value = "/store", method = RequestMethod.POST)
     public ResultVO saleStatus(@Valid @RequestBody AdForm adForm) {
 
-
-        return ResultUtil.success(ad);
+        adService.updateAdById(adForm);
+        return ResultUtil.success();
     }
 }
