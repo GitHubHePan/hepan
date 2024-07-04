@@ -19,7 +19,7 @@ public class AdForm {
 
     private Integer goodsId;
 
-    private Integer enabled;
+    private Boolean enabled;
 
     private Date endTime;
 

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<configuration>
+    <!--1. 控制台日志输出的配置-->
+    <appender name="consoleLog" class="ch.qos.logback.core.ConsoleAppender">
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <pattern>
+                [%-5level] %d{${DATETIME}} [%thread] %logger{36} - %m%n
+            </pattern>
+        </layout>
+    </appender>
+    <logger name="org.hepan.mapper" level="DEBUG"></logger>
+
+    <!--下面声明把以上的配置想用去那，root即项目的根路径，整个项目都适用-->
+    <root level="info">
+        <appender-ref ref="consoleLog"/>
+        <!--<appender-ref ref="fileInfoLog"/>-->
+        <!--<appender-ref ref="fileErrorLog"/>-->
+    </root>
+</configuration>

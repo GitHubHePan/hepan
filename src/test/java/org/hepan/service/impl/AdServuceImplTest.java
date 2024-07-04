@@ -33,7 +33,7 @@ public class AdServuceImplTest {
 
     @Test
     public void findById(){
-        HepanAd ad = adServuceImpl.findById(28);
+        AdVO ad = adServuceImpl.findById(28);
         Assert.assertNotNull(ad);
     }
 }

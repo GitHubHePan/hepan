@@ -43,12 +43,11 @@ public class AdServuceImpl implements AdService {
 
     @Override
     public Boolean updateAdStatus(Integer id, Boolean status){
-//        HepanAd ad = adMapper.findAdById(id);
-//        if(ad == null) {
-//            log.error(ResEnums.AD_NOT_FOUND.getDescription());
-//            throw new SysException(ResEnums.AD_NOT_FOUND);
-//        }
-        AdVO ad = this.findById(id);
+        HepanAd ad = adMapper.findAdById(id);
+        if(ad == null) {
+            log.error(ResEnums.AD_NOT_FOUND.getDescription());
+            throw new SysException(ResEnums.AD_NOT_FOUND);
+        }
         ad.setEnabled(status == true ? 1 : 0);
         return adMapper.updateAd(ad);
     }
@@ -63,7 +62,7 @@ public class AdServuceImpl implements AdService {
         AdVO adVO = new AdVO();
         BeanUtils.copyProperties(ad, adVO);
         adVO.setEnabled(ad.getEnabled() == 1);
-        return ad;
+        return adVO;
     }
 
     @Override
@@ -71,7 +70,8 @@ public class AdServuceImpl implements AdService {
         System.out.println(ad);
         HepanAd _ad = new HepanAd();
         BeanUtils.copyProperties(ad, _ad);
+        _ad.setEnabled(ad.getEnabled() ? 1 : 0);
         System.out.println(_ad);
-        return adMapper.updateAd(_ad);
+        return adMapper.updateAdById(_ad);
     }
 }
